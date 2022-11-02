@@ -35,7 +35,7 @@ atlantis apply
 ## Resources
 
 | Name | Type | Require |
-|------|------|----------|
+|------|------|--------|
 | [aws\_instance]() | resource | * |
 | [aws\_eip]() | resource | * |
 | [aws\_security\_group]() | resource | * |
