@@ -1,0 +1,4 @@
+resource "aws_key_pair" "this" {
+  key_name   = local.key_name
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCykuvv6TwZxSap3UrXdzNWmfhyopAA8xtaROOA13pJHx/TxQKJmdI/NOM/Gtizmwcg8dBMZdtZqLHm6EBPrfvDGm3axTXrQBULQfjQh4mwtjIjrD6qJvkSiYf0KrVVYW60Zam/Z6RtijQvrPDfcazHTpdSEo+cdEe3sGwPM2T0KvN3RWsANhzn4j8jUx4SH9yRqDm3KxXUk4/2D8GZzKZ1ml2hjktI6q4Mm4Z9VB7TnKA+V0U43NvU2/GWtHZcRmDKM6a/LYpYyw9jxfNv2WK+tiIeWzVDSZci00C7tcrlVI33mRp8u9QaUd4tAXMYSSomVGbyDlL2ZF6xytPlHQHRfirtuNso5lfp+6fVocVe/Rz/OsYwU3dkY1T5z+KXiy/TEV04H2dpWCZdbd0gyunuxM1inructBIYsVEIs/9cOSyk59iWwN2ANppyEINWAmuc8t10F/tex4/kechQ2SHGRYezUC90FjmDXImw9NzUTQmEIM0PdMX6plQgNXkz6i8= ec2-module-test-key"
+}
