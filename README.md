@@ -1,5 +1,3 @@
-# Hello! World
-
 ## Usage
 
 To run this example you need to execute:
@@ -50,7 +48,6 @@ atlantis apply
 | [env]() | 환경 ( ex. prod, stg, dev, alpha )| string |
 | [purpose]() | 해당 리소스의 용도 ( ex. 스캐너 서버 -> {prefix}{env}-{scanner-api} )| string |
 | [team]() | 담당 팀 ( ex. DevOps )| string |
-| [resource\_group\_name]() | 리소스 그룹 이름 | string |
 | [location]() | Region | string |
 | [sa\_name]() | Storage account 이름 | string |
 | [sa\_tier]() | Storage account 서비스 단계 | string |
