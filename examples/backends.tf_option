@@ -1,0 +1,31 @@
+terraform {
+  backend "s3" {
+    region         = "ap-northeast-2"
+    bucket         = "tfbackend-test"
+    dynamodb_table = "tfbackend-test"
+    key            = "aws/aws-test/apne2/ec2/test-ec2/terraform.tfstate"
+    role_arn       = "arn:aws:iam::123456789012:role/thanos-role"
+  }
+}
+
+data "terraform_remote_state" "vpc" {
+  backend = "s3"
+  config = {
+    region         = "ap-northeast-2"
+    bucket         = "tfbackend-test"
+    dynamodb_table = "tfbackend-test"
+    key            = "aws/aws-test/apne2/vpc/test/terraform.tfstate"
+    role_arn       = "arn:aws:iam::123456789012:role/thanos-role"
+  }
+}
+
+data "terraform_remote_state" "bastion" {
+  backend = "s3"
+  config = {
+    region         = "ap-northeast-2"
+    bucket         = "wemix-tfbackend-wemix"
+    dynamodb_table = "wemix-tfbackend-wemix"
+    key            = "aws/aws-test/apne2/bastion/terraform.tfstate"
+    role_arn       = "arn:aws:iam::123456789012:role/thanos-role"
+  }
+}

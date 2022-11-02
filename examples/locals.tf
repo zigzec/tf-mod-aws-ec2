@@ -3,7 +3,10 @@ locals {
   env                = "test"
   team               = "devops"
   purpose            = "nginx"
-  vpc_id             = data.terraform_remote_state.vpc.outputs.id
+  vpc_id             = "test"
+  #vpc_id            = data.terraform_remote_state.vpc.outputs.id
+  subnet_id	     = "test"
+  #subnet_id	     = data.terraform_remote_state.vpc.outputs.private_subnets["ap-northeast-2a"].id
   private_subnet_ids = values(data.terraform_remote_state.vpc.outputs.private_subnets)[*].id
   authorized_cidrs = distinct(concat([
     "10.77.77.0/24", "10.88.88.0/24"

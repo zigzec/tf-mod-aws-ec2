@@ -23,13 +23,13 @@ atlantis apply
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.0.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 4.0.0 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="storage"></a> [storage](#storage) | ../ | v0.0.0 |
+| <a name="ec2"></a> [ec2](#ec2) | ../ | v0.0.0 |
 
 
 ## Resources
