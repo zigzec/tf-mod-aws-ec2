@@ -12,6 +12,7 @@ resource "aws_key_pair" "this" {
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCykuvv6TwZxSap3UrXdzNWmfhyopAA8xtaROOA13pJHx/TxQKJmdI/NOM/Gtizmwcg8dBMZdtZqLHm6EBPrfvDGm3axTXrQBULQfjQh4mwtjIjrD6qJvkSiYf0KrVVYW60Zam/Z6RtijQvrPDfcazHTpdSEo+cdEe3sGwPM2T0KvN3RWsANhzn4j8jUx4SH9yRqDm3KxXUk4/2D8GZzKZ1ml2hjktI6q4Mm4Z9VB7TnKA+V0U43NvU2/GWtHZcRmDKM6a/LYpYyw9jxfNv2WK+tiIeWzVDSZci00C7tcrlVI33mRp8u9QaUd4tAXMYSSomVGbyDlL2ZF6xytPlHQHRfirtuNso5lfp+6fVocVe/Rz/OsYwU3dkY1T5z+KXiy/TEV04H2dpWCZdbd0gyunuxM1inructBIYsVEIs/9cOSyk59iWwN2ANppyEINWAmuc8t10F/tex4/kechQ2SHGRYezUC90FjmDXImw9NzUTQmEIM0PdMX6plQgNXkz6i8= ec2-module-test-key"
 }
 
+# public image
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -49,11 +50,12 @@ resource "aws_security_group" "this" {
 
 module "ec2" {
   source = "../"
+  #source = "git@github.com:zigzec/tf-mod-aws-ec2.git?ref=v0.0.0"
 
-  prefix  = "ct"
+  prefix  = "test"
   env     = "test"
-  team    = "ops"
-  purpose = "mongodb"
+  team    = "devops"
+  purpose = "nginx"
 
   vpc_id                      = aws_vpc.this.id
   subnet_id                   = aws_subnet.subnet1.id
@@ -72,8 +74,8 @@ module "ec2" {
   ]
   required_iam_role   = true
   required_eip        = false
-  attached_policy_arn = ["arn:aws:iam::076218763980:policy/owen-quicksight-policy"]
-  role_name           = "cttest-mongodb-role"
+  attached_policy_arn = ["arn:aws:iam::076218763980:policy/jayce-read-policy"]
+  role_name           = "ec2-readonly-test"
 }
 
 output "instance_id" {

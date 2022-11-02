@@ -3,7 +3,7 @@
 To run this example you need to execute:
 
 ```bash
-(only Test)
+
 terraform plan
 terraform apply
 --------------------
