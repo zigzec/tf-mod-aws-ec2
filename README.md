@@ -36,11 +36,13 @@ atlantis apply
 
 | Name | Type | Require |
 |------|------|----------|
-| [aws\_instance]() | resource |  |
-| [aws\_eip]() | resource |  |
-| [aws\_iam\_instance\_profile]() | resource |  |
+| [aws\_instance]() | resource | * |
+| [aws\_eip]() | resource | * |
+| [aws\_security\_group]() | resource | * |
 | [aws\_key\_pair]() | resource |  |
-| [aws\_security\_group]() | resource |  |
+| [aws\_iam\_instance\_profile]() | resource |  |
+| [aws\_iam\_role]() | resource |  |
+| [aws\_iam\_role\_policy\_attachment]() | resource |  |
 
 ## Inputs
 
