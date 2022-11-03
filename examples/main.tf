@@ -24,13 +24,13 @@ module "ec2" {
   source = "../"
   #source = "git@github.com:zigzec/tf-mod-aws-ec2.git?ref=v0.0.0"
 
-  prefix  = "test"
-  env     = "test"
-  team    = "devops"
-  purpose = "nginx"
+  prefix  = local.prefix
+  env     = local.env
+  team    = local.team
+  purpose = local.purpose
 
-  vpc_id                      = local.vpc.id
-  subnet_id                   = local.subnet.id
+  vpc_id                      = local.vpc_id
+  subnet_id                   = local.subnet_id
   ami_id                      = data.aws_ami.ubuntu.id
   instance_type               = "t3.micro"
   associate_public_ip_address = false
@@ -41,16 +41,9 @@ module "ec2" {
   root_block_device           = local.root_block_device
   ebs_block_device            = local.ebs_block_device
 
-  required_iam_role   = true
+  required_iam_role   = false
   required_eip        = false
-  attached_policy_arn = ["arn:aws:iam::076218763980:policy/jayce-read-policy"]
-  role_name           = "ec2-readonly-test"
-}
 
-output "instance_id" {
-  value = module.ec2.instance_id
-}
-
-output "iam_role_arn" {
-  value = module.ec2.iam_role_arn
+  ## only required_iam_role = true
+  #role_name           = "ec2-readonly-test"
 }

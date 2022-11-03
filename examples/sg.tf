@@ -1,6 +1,6 @@
 resource "aws_security_group" "this" {
-  name   = format("tf-mod-ec2-test-%s-sg", random_string.random.result)
-  vpc_id = aws_vpc.this.id
+  name   = format("tf-ec2-test-%s-sg", random_string.random.result)
+  vpc_id = local.vpc_id
 
   ingress {
     protocol    = "tcp"
@@ -16,7 +16,7 @@ resource "aws_security_group" "this" {
     protocol        = "tcp"
     from_port       = 22
     to_port         = 22
-    security_groups = [data.terraform_remote_state.bastion.outputs.aware_sg_id]
+    cidr_blocks = ["0.0.0.0/0"]
     description     = "allow port from bastion"
   }
 
